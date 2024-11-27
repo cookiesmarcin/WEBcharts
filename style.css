@@ -1,0 +1,308 @@
+/* Reset stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Główne tło */
+body {
+    background-color: #000;
+    color: #ddd;
+    font-family: Arial, sans-serif;
+}
+
+/* Górny pasek */
+.top-bar {
+    background-color: #333;
+    color: #ddd;
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.top-button {
+    background-color: #1a1a40; /* Granatowy */
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.top-button:hover {
+    background-color: #ffa500; /* Pomarańczowy */
+}
+
+/* Główna sekcja i menu boczne */
+.main-container {
+    display: flex;
+    margin-top: 60px; /* Przestrzeń na górny pasek */
+}
+
+.view-section {
+    display: grid;
+    gap: 10px;
+    padding: 20px;
+    grid-template-columns: repeat(12, 1fr); /* 12 kolumn */
+    background-color: #000;
+    flex: 1;
+}
+
+/* Styl wykresu */
+.chart {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1 / 1; /* Wymuszony kwadrat */
+}
+
+/* Rozmiary kafelków */
+.chart.level-1 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.chart.level-2 {
+    grid-column: span 4;
+    grid-row: span 4;
+}
+
+.chart.level-3 {
+    grid-column: span 6;
+    grid-row: span 6;
+}
+
+/* Menu zmiany poziomu w prawym górnym rogu */
+.chart-header {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.level-selector {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Przyciski zamykania */
+.close-button {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+/* Styl tabelki */
+.data-table {
+    width: 100%;
+    height: 70%; /* Dopasowanie wysokości tabelki w kafelku */
+    border-collapse: collapse;
+    font-size: 6px; /* Czcionka, która zmieści tabelę */
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid #555;
+    padding: 5px;
+    text-align: center;
+    color: #ddd;
+}
+
+.data-table th {
+    background-color: #333;
+}
+
+.data-table td[contenteditable="true"] {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Menu boczne */
+.side-menu {
+    width: 250px;
+    background-color: #222;
+    border-left: 1px solid #444;
+    padding: 15px;
+    color: #ddd;
+}
+
+.side-menu h2 {
+    font-size: 18px;
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+/* Styl dla przycisku zamykania bocznego menu */
+.close-menu-button {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Zamknięte menu (pasek po prawej stronie) */
+.collapsed-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.collapsed-menu .open-menu-button {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Ukrywanie bocznego menu, gdy jest zamknięte */
+.side-menu.hidden {
+    display: none;
+}
+
+
+.chart-icon-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chart-icon {
+    background-color: #555;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #777;
+    cursor: pointer;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.chart-icon:hover {
+    background-color: #666;
+}
+
+/* Styl wysuwanego menu */
+.slide-out-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: #222;
+    color: #ddd;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 1001;
+}
+
+.slide-out-panel.open {
+    right: 0;
+}
+
+.close-panel-button {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Styl przycisku wyboru typu wykresu */
+.chart-type-button {
+    display: block;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #1a1a40;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.chart-type-button:hover {
+    background-color: #ffa500;
+}
+/* Styl dla tabelki wewnątrz kafelka */
+.chart table {
+    width: 100%;
+    height: 100%;
+    font-size: 6px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    overflow: hidden; /* Zabezpieczenie przed wychodzeniem tabelki */
+}
+
+/* Komórki tabelki */
+.chart th, .chart td {
+    border: 1px solid #555;
+    text-align: center;
+    padding: 2px;
+    overflow: hidden; /* Ukrywanie nadmiarowej zawartości */
+    white-space: nowrap; /* Wymuszanie jednolinijkowości */
+    text-overflow: ellipsis; /* Skracanie nadmiarowego tekstu */
+}
+
+/* Ustawienie proporcji kafelka na kwadrat */
+.chart {
+    aspect-ratio: 1 / 1; /* Wymuszenie kwadratowego kształtu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ukrywanie nadmiarowej zawartości */
+}
+
+/* Wymuszony rozmiar tekstu tabelki */
+.chart table {
+    font-size: 6px; /* Stały rozmiar czcionki w tabelce */
+}
+.main-container {
+    display: flex;
+    width: 100%; /* Zapewnia stałą szerokość */
+}
+
+.view-section {
+    flex: 1; /* Główna przestrzeń robocza zajmuje resztę miejsca */
+    max-width: calc(100% - 250px); /* Uwzględnia szerokość panelu kafelków */
+    transition: max-width 0.3s ease; /* Łagodne przejście podczas zmiany szerokości */
+}
+
+.side-menu.hidden ~ .view-section {
+    max-width: 100%; /* Przy ukrytym panelu kafelków przestrzeń robocza zostaje stała */
+}
